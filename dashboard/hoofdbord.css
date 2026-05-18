@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+#include_vakjes {
+    background-color: rgb(255, 255, 255);
+    height: 150px;
+    aspect-ratio: 1/1;
+    border: 1px solid gray;
+}
+#bord {
+    height: 500px;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+}
