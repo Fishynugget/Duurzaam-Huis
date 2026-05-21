@@ -9,29 +9,19 @@
 </head>
 
 <body>
-    <header>
-        header met logo en titel
-    </header>
+    <?php include_once 'header/header.php';?>
     <main>
-        <table id="bord">
-            <?php
-            function vakjes()
-            {
-                for ($column = 0; $column < 3; $column++) {
-                    echo "<tr>";
-                    for ($row = 0; $row < 3; $row++) {
-                        echo '<td id="include_vakjes"></td>';
-                    }
-                    echo "</tr>";
-                }
-            }
-            vakjes();
-            ?>
-        </table>
+        <section <?php include_once 'datum-en-tijd/datum-en-tijd.php';?>></section>
+        <section <?php include_once 'gas-verbruik/gas-verbruik.php';?>></section>
+        <section <?php include_once 'gebruik-electriciteit/gebruik-electriciteit.php';?>></section>
+        <section <?php include_once 'knopjes-voor-licht/knopjes-voor-licht.php';?>></section>
+        <section <?php include_once 'opbrengst-zonnepanelen/opbrengst-zonnepanelen.php';?>></section>
+        <section <?php include_once 'temperatuur-binnen-buiten/temperatuur-binnen-buiten.php';?>></section>
+        <section <?php include_once 'tijdsspanne/tijdsspanne.php';?>></section>
+        <section <?php include_once 'water-verbruik/water-verbruik.php';?>></section>
+        <section <?php include_once 'weersverwachting/weersverwachting.php';?>></section>
     </main>
-    <footer>
-        footer met namen groepje
-    </footer>
+    <?php include_once 'footer/footer.php';?>
 </body>
 
 </html>
