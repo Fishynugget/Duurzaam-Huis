@@ -6,6 +6,7 @@
     <title>Duurzaam Huis Dashboard</title>
     <link rel="stylesheet" href="hoofdbord.css">
 </head>
+
 <body>
     <div class="aurora aurora-one"></div>
     <div class="aurora aurora-two"></div>
@@ -323,4 +324,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
