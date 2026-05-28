@@ -78,11 +78,7 @@
             <header class="topbar pdf-title">
                 <div>
                     <span class="pdf-logo" aria-hidden="true">
-                        <svg viewBox="0 0 64 64" role="img">
-                            <circle cx="32" cy="32" r="16"></circle>
-                            <path d="M23 25c6 4 10 3 18 1M21 35c7-2 14 2 22-1M31 17c-4 10-4 20 1 30M39 19c-5 8-6 17-2 26"></path>
-                            <ellipse cx="32" cy="32" rx="28" ry="10" transform="rotate(-20 32 32)"></ellipse>
-                        </svg>
+                        <img src="assets\logo.svg" alt="EcoPulse logo"></img>
                     </span>
                     <p class="eyebrow">EcoPulse dashboard</p>
                     <h1>EcoPulse</h1>
@@ -318,7 +314,7 @@
                 </div>
             </section>
             <footer class="pdf-footer glass-panel">
-                <span>Duurzaam Huis  <br/>Tygo. Helena. Deimien.</span>
+                <span>Duurzaam Huis  <br/>Tygo. Helena. Daimien.</span>
             </footer>
         </main>
     </div>
