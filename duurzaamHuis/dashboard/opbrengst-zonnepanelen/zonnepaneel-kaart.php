@@ -2,4 +2,6 @@
     <span>Opbrengst zonnepanelen</span>
     <strong>7.8 kW</strong>
     <p>Realtime opbrengst van het dak.</p>
+    <br>
+    <h10>Daimien</h10>
 </a>

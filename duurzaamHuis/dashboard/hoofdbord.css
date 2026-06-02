@@ -1803,6 +1803,13 @@ body::before {
     color: var(--muted);
 }
 
+.pdf-module h10 {
+    margin: 0;
+    font-size: .82rem;
+    font-weight: 800;
+    color: var(--muted);
+}
+
 .tile-time { grid-area: time; }
 .tile-date { grid-area: date; }
 .tile-light { grid-area: light; }
