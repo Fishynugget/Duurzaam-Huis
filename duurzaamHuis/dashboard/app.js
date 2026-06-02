@@ -154,46 +154,27 @@ function createDayData() {
 }
 
 function createWeekData() {
-
-    const dayNames = [
-        "Zo",
-        "Ma",
-        "Di",
-        "Wo",
-        "Do",
-        "Vr",
-        "Za"
-    ];
-
-    const now = new Date();
-
     return Array.from(
-        { length: 7 },
+        { length: 4 },
         (_, index) => {
-
-            const offset = 6 - index;
-
-            const date = new Date(now);
-
-            date.setDate(now.getDate() - offset);
 
             const generated =
                 Math.round(
-                    58 + Math.sin(index / 7 * Math.PI) * 28
+                    58 + Math.sin(index / 4 * Math.PI) * 28
                 );
 
             const used =
                 Math.round(
-                    42 + Math.cos(index / 7 * Math.PI) * 18
+                    42 + Math.cos(index / 4 * Math.PI) * 18
                 );
 
             return {
                 generated,
                 used,
 
-                label: dayNames[date.getDay()],
+                label: `Week ${index + 1}`,
 
-                isNow: offset === 0,
+                isNow: index === 3,
 
                 solar: (generated / 12).toFixed(1),
 
