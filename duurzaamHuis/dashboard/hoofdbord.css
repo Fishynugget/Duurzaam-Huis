@@ -1539,8 +1539,8 @@ body::before {
 }
 
 .comparison-chart[data-period="hour"] .bar small {
-    font-size: .52rem;
-    transform: rotate(-45deg) translateX(-8px);
+    font-size: .65rem;
+    /* transform: rotate(-45deg) translateX(-8px); */
     transform-origin: top left;
     white-space: nowrap;
 }
