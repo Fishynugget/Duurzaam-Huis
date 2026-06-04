@@ -1,0 +1,5 @@
+.module-card:first-child {
+    background:
+        radial-gradient(circle at 78% 20%, rgba(69,233,255,.24), transparent 34%),
+        rgba(255,255,255,.08);
+}
