@@ -6,4 +6,4 @@
 ** test nav bar 
 ** test header 
 ** kijken voor bugs 
-** laat AI het checken 
+## laat AI het checken 
