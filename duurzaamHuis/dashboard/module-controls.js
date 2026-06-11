@@ -1,45 +1,61 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => [...document.querySelectorAll(selector)];
+var periodButtons = document.querySelectorAll("[data-period]");
+var toggleButtons = document.querySelectorAll(".toggle-pill");
+var moduleMeter = document.querySelector(".module-meter");
 
-const periodButtons = $$("[data-period]");
-const toggleButtons = $$(".toggle-pill");
-const moduleMeter = $(".module-meter");
+for (var i = 0; i < periodButtons.length; i++) {
+    periodButtons[i].onclick = function () {
+        var period = this.getAttribute("data-period");
+        var selected = document.querySelector(".selected-period");
+        var description = document.querySelector(".period-description");
 
-const periodContent = {
-    day: ["Day", "70%", "Hourly energy changes for today."],
-    week: ["Week", "78%", "Daily generation, usage and battery behavior for the week."],
-    month: ["Month", "84%", "The monthly view helps spot patterns in savings and peak usage."],
-    year: ["Year", "91%", "The yearly view shows long-term solar and consumption trends."]
-};
+        for (var j = 0; j < periodButtons.length; j++) {
+            periodButtons[j].classList.remove("active");
+        }
+        this.classList.add("active");
 
-periodButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const content = periodContent[button.dataset.period];
-        if (!content) return;
+        if (selected) selected.innerHTML = period;
+        if (description) description.innerHTML = "This is the " + period + " view for the house.";
 
-        periodButtons.forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-        $(".selected-period").textContent = content[0];
-        $(".period-description").textContent = content[2];
-        moduleMeter?.style.setProperty("--meter", content[1]);
-    });
-});
-
-function updateDeviceSummary() {
-    const activeCount = toggleButtons.filter((button) => button.getAttribute("aria-pressed") === "true").length;
-
-    $(".device-count").textContent = String(activeCount);
-    $(".device-summary").textContent = `${activeCount} device${activeCount === 1 ? "" : "s"} active. Lighting adapts to daylight and occupancy.`;
-    moduleMeter?.style.setProperty("--meter", `${Math.max(12, activeCount * 22)}%`);
+        if (moduleMeter) {
+            if (period == "day") moduleMeter.style.setProperty("--meter", "70%");
+            if (period == "week") moduleMeter.style.setProperty("--meter", "78%");
+            if (period == "month") moduleMeter.style.setProperty("--meter", "84%");
+            if (period == "year") moduleMeter.style.setProperty("--meter", "91%");
+        }
+    };
 }
 
-toggleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const isActive = button.getAttribute("aria-pressed") === "true";
-        button.setAttribute("aria-pressed", String(!isActive));
-        button.classList.toggle("is-off", isActive);
-        updateDeviceSummary();
-    });
-});
+function countLights() {
+    var count = 0;
 
-if (toggleButtons.length) updateDeviceSummary();
+    for (var i = 0; i < toggleButtons.length; i++) {
+        if (toggleButtons[i].getAttribute("aria-pressed") == "true") {
+            count++;
+        }
+    }
+
+    var deviceCount = document.querySelector(".device-count");
+    var summary = document.querySelector(".device-summary");
+
+    if (deviceCount) deviceCount.innerHTML = count;
+    if (summary) summary.innerHTML = count + " devices active.";
+    if (moduleMeter) moduleMeter.style.setProperty("--meter", Math.max(12, count * 22) + "%");
+}
+
+for (var k = 0; k < toggleButtons.length; k++) {
+    toggleButtons[k].onclick = function () {
+        if (this.getAttribute("aria-pressed") == "true") {
+            this.setAttribute("aria-pressed", "false");
+            this.classList.add("is-off");
+        } else {
+            this.setAttribute("aria-pressed", "true");
+            this.classList.remove("is-off");
+        }
+
+        countLights();
+    };
+}
+
+if (toggleButtons.length > 0) {
+    countLights();
+}
