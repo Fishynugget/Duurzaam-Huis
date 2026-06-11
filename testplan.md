@@ -1,4 +1,4 @@
-## test voor tel 
+## test voor telefoon
 ## test of alles werkt 
 ## test figma 
 ## test alle tijden 
